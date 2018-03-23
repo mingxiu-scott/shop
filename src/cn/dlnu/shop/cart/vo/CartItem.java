@@ -26,9 +26,4 @@ public class CartItem {
 	public double getSubtotal() {
 		return count * product.getShop_price();
 	}
-	/*public void setSubtotal(double subtotal) {
-		this.subtotal = subtotal;
-	}
-	*/
-	
 }

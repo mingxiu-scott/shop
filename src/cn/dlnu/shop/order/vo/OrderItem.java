@@ -14,6 +14,7 @@ public class OrderItem {
 	private Product product;
 	// 订单外键:对象
 	private Order order;
+	
 	public Integer getItemid() {
 		return itemid;
 	}

@@ -1,6 +1,8 @@
 package cn.dlnu.shop.order.action;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.struts2.ServletActionContext;
@@ -79,8 +81,22 @@ public class OrderAction extends ActionSupport implements ModelDriven<Order> {
 		order.setTotal(cart.getTotal());
 		// 设置订单的状态
 		order.setState(1); // 1:未付款.
+		
+		
+		Date date=new Date();                             
+        SimpleDateFormat temp=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");  
+        String date2=temp.format(date);  
+        Date date3 = null;
+		try {
+			date3 = temp.parse(date2);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		
 		// 设置订单时间
-		order.setOrdertime(new Date());
+		order.setOrdertime(date3);
 		// 设置订单关联的客户:
 		User existUser = (User) ServletActionContext.getRequest().getSession()
 				.getAttribute("existUser");
